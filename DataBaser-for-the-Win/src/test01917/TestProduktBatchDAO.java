@@ -22,12 +22,11 @@ public class TestProduktBatchDAO {
 		List<ProduktBatchDTO> pbDTOList = impl.getProduktBatchList();
 		int validId = impl.getProduktBatchList().get(0).getPbId();
 		
-		pbDTO = impl.getProduktBatch(validId);
+		ProduktBatchDTO actual = impl.getProduktBatch(validId);
+		ProduktBatchDTO expected = pbDTOList.get(0);
 		
-		if (pbDTO != null && pbDTO == pbDTOList.get(0))
-		{
-			assertArrayEquals(expecteds, actuals);
-		}
+		assertEquals(expected, actual);
+		
 	}
 	
 	@Test

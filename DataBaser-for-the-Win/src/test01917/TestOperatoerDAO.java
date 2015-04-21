@@ -2,13 +2,19 @@ package test01917;
 
 import static org.junit.Assert.*;
 
+import java.sql.Connection;
+
 import org.junit.Test;
+
+import connector01917.Connector;
 
 public class TestOperatoerDAO {
 	
+	ope
+	
 	@Test
 	public void getOperatoer() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test

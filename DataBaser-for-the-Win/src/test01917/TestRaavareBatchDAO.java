@@ -7,12 +7,29 @@ import org.junit.Test;
 
 public class TestRaavareBatchDAO {
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	
 	@Test
-	public void test() {
+	public void getRaavareBatch() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void getRaavareBatchList() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void getRaavareBatchListWithraavareId() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void createRaavareBatch() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void updateRaavareBatch() {
 		fail("Not yet implemented");
 	}
 

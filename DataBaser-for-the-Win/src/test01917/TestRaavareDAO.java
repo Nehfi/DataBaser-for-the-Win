@@ -15,21 +15,23 @@ public class TestRaavareDAO {
 	//	void createRaavare(RaavareDTO raavare) throws DALException;
 	//	void updateRaavare(RaavareDTO raavare) throws DALException;
 
-	
+	RaavareDAO rd = new MySQLRaavareDAO();
 
 
 	@Test
 	public void testGetRaavare() throws DALException {
-		RaavareDAO rd = new MySQLRaavareDAO();
-	
-		System.out.println();
-		for (int i = 0; i < rd.getRaavareList().size(); i++) {
-			System.out.println( rd.getRaavareList().get(i));
-			
-		}
-		int id = rd.getRaavareList().get(1).getRaavareId();
-		System.out.println(id);
-	//	fail("Not yet implemented");
+
+		RaavareDTO testVare = null;
+		List<RaavareDTO> raavareList = rd.getRaavareList();
+		int ID = raavareList.get(0).getRaavareId();
+		testVare = rd.getRaavare(ID);
+
+		RaavareDTO actual = testVare;
+		RaavareDTO expected = raavareList.get(0);
+
+		assertEquals(expected, actual);
+
+
 	}
 
 	@Test

@@ -58,13 +58,17 @@ public class TestRaavareDAO {
 	@Test
 	public void testUpdateRaaVare(){
 		RaavareDTO dto = null;
+		String expected = "bullerbassen";
 		try {
 			dto = rd.getRaavareList().get(0);
-			dto.setLeverandoer("bullerbassen");
+			dto.setLeverandoer(expected);
 			rd.updateRaavare(dto);
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		String actual = dto.getLeverandoer();
+		assertEquals(expected, actual);
+		
 	}
 }

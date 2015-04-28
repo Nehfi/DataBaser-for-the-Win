@@ -10,8 +10,6 @@ import connector01917.Connector;
 
 public class TestOperatoerDAO {
 	
-	ope
-	
 	@Test
 	public void getOperatoer() {
 		

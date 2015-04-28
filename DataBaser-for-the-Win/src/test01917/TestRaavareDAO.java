@@ -10,11 +10,6 @@ import dto01917.RaavareDTO;
 
 public class TestRaavareDAO {
 
-	//	RaavareDTO getRaavare(int raavareId) throws DALException;
-	//	List<RaavareDTO> getRaavareList() throws DALException;
-	//	void createRaavare(RaavareDTO raavare) throws DALException;
-	//	void updateRaavare(RaavareDTO raavare) throws DALException;
-
 	RaavareDAO rd = new MySQLRaavareDAO();
 
 
@@ -36,15 +31,40 @@ public class TestRaavareDAO {
 
 	@Test
 	public void testGetRaavareList() throws DALException{
-		boolean moreThanZero = false;
-		rd.getRaavareList().size();
-	}
+		boolean actual = false;
+		int expectedSize = rd.getRaavareList().size();
+		if(expectedSize > 0){
+		}
+
+		boolean expected = true;
+
+		assertEquals(expected, actual);
+	} 
 	@Test
 	public void TestCreateRaavare(){
-		// teste ved at tage listen først, lave en raavare, derefter smide 	
+		int expected=  0, actual = 0;
+		try {
+			expected = rd.getRaavareList().size() + 1;
+			rd.createRaavare(new RaavareDTO(100, "Banan", "taberstedet"));
+			actual =  rd.getRaavareList().size();
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		assertEquals(expected, actual);
+
 	}
 	@Test
 	public void testUpdateRaaVare(){
-		fail("Not yet implemented");
+		RaavareDTO dto = null;
+		try {
+			dto = rd.getRaavareList().get(0);
+			dto.setLeverandoer("bullerbassen");
+			rd.updateRaavare(dto);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -35,12 +35,13 @@ public class TestRaavareDAO {
 	}
 
 	@Test
-	public void testGetRaavareList(){
-		fail("Not yet implemented");
+	public void testGetRaavareList() throws DALException{
+		boolean moreThanZero = false;
+		rd.getRaavareList().size();
 	}
 	@Test
 	public void TestCreateRaavare(){
-		fail("Not yet implemented");
+		// teste ved at tage listen først, lave en raavare, derefter smide 	
 	}
 	@Test
 	public void testUpdateRaaVare(){

@@ -31,7 +31,7 @@ public class TestRaavareBatchDAO {
 	}
 	
 	@Test
-	public void getRaavareBatch() throws DALException, InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
+	public void testGetRaavareBatch() throws DALException, InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		
 		
 		
@@ -50,33 +50,49 @@ public class TestRaavareBatchDAO {
 	}
 	
 	@Test
-	public void getRaavareBatchList() throws DALException {
+	public void testGetRaavareBatchList() throws DALException {
 		
-		RaavareBatchDAO rbDAO= null;
+		List<RaavareBatchDTO> list = dao.getRaavareBatchList();
 		
-		List<RaavareBatchDTO> rbDAOList = dao.getRaavareBatchList();
-		int validId = dao.getRaavareBatchList().get(0).getRbId();
+		assertTrue(list.size()>1);
 		
-		RaavareBatchDTO actual = dao.getRaavareBatch(validId);
-		RaavareBatchDTO expected = rbDAOList.get(0);
+	}
+	
+	@Test
+	public void testGetRaavareBatchListWithraavareId() throws DALException {
+		
+		List<RaavareBatchDTO> list1 = dao.getRaavareBatchList();
+		
+		assertTrue(list1.size()>1);
+		
+	}
+	
+	@Test
+	public void TestCreateRaavareBatch() throws DALException {
+		
+		List<RaavareBatchDTO> list = dao.getRaavareBatchList();
+		int currentList = list.get(list.size()-1).getRbId();
+		
+		int expected = dao.getRaavareBatchList().size()+1;
+		dao.createRaavareBatch(new RaavareBatchDTO(currentList+1, 7, 23));
+		int actual = dao.getRaavareBatchList().size();
 		
 		assertEquals(expected, actual);
-		
 	}
 	
 	@Test
-	public void getRaavareBatchListWithraavareId() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	public void createRaavareBatch() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	public void updateRaavareBatch() {
-		fail("Not yet implemented");
+	public void TestUpdateRaavareBatch() {
+		RaavareBatchDTO dto = null;
+		int expected = 148;
+		try {
+			dto = dao.getRaavareBatchList().get(0);
+			dto.setRaavareId(expected);
+			dao.updateRaavareBatch(dto);
+		} catch (DALException e) {
+			e.printStackTrace();
+		}
+		int actual = dto.getRaavareId();
+		assertEquals(expected, actual);
 	}
 
 }

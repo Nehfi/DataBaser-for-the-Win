@@ -42,9 +42,9 @@ public class TestProduktBatchDAO {
 		
 		boolean theSame = true;
 		
-		if (actual.getPbId() 	!= expected.getPbId()) 	   theSame = false;
+		if (actual.getPbId() 	!= expected.getPbId()) 	   	theSame = false;
 		if (actual.getReceptId() != expected.getReceptId()) theSame = false;
-		if (actual.getStatus() != expected.getStatus()) theSame = false;
+		if (actual.getStatus() != expected.getStatus()) 	theSame = false;
 
 		assertTrue(theSame);
 		

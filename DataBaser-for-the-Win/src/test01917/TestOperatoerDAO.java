@@ -75,6 +75,7 @@ public class TestOperatoerDAO {
 	public void updateOperatoer() throws DALException {
 		OperatoerDTO opDto = null;
 		String expected = "Jens Jensen";
+		
 		try {
 			opDto = opDao.getOperatoerList().get(0);
 			opDto.setOprNavn(expected);

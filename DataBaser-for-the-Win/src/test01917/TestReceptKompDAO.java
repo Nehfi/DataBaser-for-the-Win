@@ -4,20 +4,19 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
-import org.junit.After;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import connector01917.Connector;
 import daoimpl01917.MySQLReceptKompDAO;
 import daointerfaces01917.DALException;
-import dto01917.RaavareDTO;
+
 import dto01917.ReceptKompDTO;
 
 public class TestReceptKompDAO {
 
 	
-	//	void updateReceptKomp(ReceptKompDTO receptkomponent) throws DALException;
 
 	MySQLReceptKompDAO rk = new MySQLReceptKompDAO();
 

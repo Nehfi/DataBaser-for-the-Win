@@ -42,21 +42,35 @@ public class TestReceptDAO {
 		if(actual.getReceptId() != expected.getReceptId()) 				areSame = false;
 		if(!actual.getReceptNavn().equals(expected.getReceptNavn())) 	areSame = false;
 
-		System.out.println("A: " + actual + ", E :" + expected);
-		
 		assertTrue(areSame);
 	}
 
 	@Test
-	public void testCreateRecept(){
-		//tager ReceptDTO recept
-
+	public void testCreateRecept() throws DALException{
+		
+		List<ReceptDTO> recList = re.getReceptList();
+		int highID = recList.get(recList.size()-1).getReceptId();
+		
+		int expected = re.getReceptList().size()+1;
+		re.createRecept(new ReceptDTO(highID+1, "Spock"));
+		int actual = re.getReceptList().size();
+		
+		assertEquals(expected, actual);
 	}
 
 	@Test
-	public void testUpdateRecept(){
-		//tager ReceptDTO recept
-
+	public void testUpdateRecept()throws DALException{
+		
+		ReceptDTO rec = null;
+		String expected = "Kirk";
+		
+		rec = re.getReceptList().get(0);
+		rec.setReceptNavn(expected);
+		re.updateRecept(rec);
+		
+		String actual = rec.getReceptNavn();
+		
+		assertEquals(expected, actual);
 	}
 
 }

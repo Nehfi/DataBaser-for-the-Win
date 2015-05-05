@@ -44,6 +44,14 @@ public class TestReceptDAO {
 
 		assertTrue(areSame);
 	}
+	
+	@Test
+	public void testGetReceptList() throws DALException{
+		
+		List<ReceptDTO> recList = re.getReceptList();
+		
+		assertTrue(recList.size()>1);
+	}
 
 	@Test
 	public void testCreateRecept() throws DALException{

@@ -5,13 +5,14 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 
+
 import org.junit.Before;
 import org.junit.Test;
 
 import connector01917.Connector;
 import daoimpl01917.MySQLReceptKompDAO;
 import daointerfaces01917.DALException;
-
+import dto01917.ProduktBatchKompDTO;
 import dto01917.ReceptKompDTO;
 
 public class TestReceptKompDAO {
@@ -76,17 +77,23 @@ public class TestReceptKompDAO {
 	
 	@Test
 	public void testUpdateReceptKomp() throws DALException{
+
 		
 		
-		ReceptKompDTO one = rk.getReceptKompList().get(0);
-		one.setTolerance(0.01);
-		rk.updateReceptKomp(one);
-		double expected = 3.0;
-		one.setTolerance(expected);
-		rk.updateReceptKomp(one);
+		ReceptKompDTO one = null;
+		double expected = 0.2;
 		
-		double actual = rk.getReceptKompList().get(0).getTolerance();
-		//Der kan opstå fejl hvis den afrunder decimalerne forkert
-		assertTrue(actual == expected);
+		try{
+			one = rk.getReceptKompList().get(0);
+			one.setTolerance(expected);
+			rk.updateReceptKomp(one);
+		}catch(DALException e){
+			e.printStackTrace();
+		}
+
+		
+		double actual = one.getTolerance();
+	
+		assertEquals(expected, actual, 0);
 	}
 }

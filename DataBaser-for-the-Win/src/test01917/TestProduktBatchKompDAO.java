@@ -70,19 +70,6 @@ List<ProduktBatchKompDTO> list = dao.getProduktBatchKompList();
 	
 	}
 	
-//	@Test
-//	public void testCreateProduktBatchKomp() throws DALException {
-//
-//		List<ProduktBatchKompDTO> list = dao.getProduktBatchKompList();
-//		int currentList = list.get(list.size()-1).getPbId();
-//		
-//		int expected = dao.getProduktBatchKompList().size()+1;
-//		dao.createProduktBatchKomp(new ProduktBatchKompDTO(currentList+1, 4, 0.0, 0.0, 3));
-//		int actual = dao.getProduktBatchKompList().size();
-//		
-//		assertEquals(expected, actual);
-//		
-//	}
 	
 	@Test
 	public void testUpdateProduktBatchKomp() throws DALException {
